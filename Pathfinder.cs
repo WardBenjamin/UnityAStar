@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public static class Pathfinder
 {
@@ -18,7 +19,7 @@ public static class Pathfinder
     /// <returns>The end breadcrump where each .next is a step back)</returns>
     private static BreadCrumb FindPathReversed(Vector2 start, Vector2 end)
     {
-        var world = TileManager.instance;
+        var world = AbstractTileManager.instance;
 
         MinHeap<BreadCrumb> openList = new MinHeap<BreadCrumb>();
         BreadCrumb[,] brWorld = new BreadCrumb[(int)world.size.x, (int)world.size.y];
@@ -70,11 +71,9 @@ public static class Pathfinder
                             diff += 1;
                         }
 
-                        int distance = (int)Mathf.Pow(Mathf.Max(Mathf.Abs(end.x - node.position.x), Mathf.Abs(end.y - node.position.y)), 2);
-                        //int distance1 = (int)Mathf.Pow(Vector2.Distance(new Vector2(node.position.x, node.position.y), new Vector2(end.x, end.y)), 2);
+						// FIXME: Use Mathf
+                        int distance = (int)Math.Pow(Math.Max(Math.Abs(end.x - node.position.x), Math.Abs(end.y - node.position.y)), 2);
                         cost = current.cost + diff + distance;
-                        //cost = current.cost + diff + (int)Mathf.Pow(Vector2.Distance(node.position, end), 2);
-
 
                         if (cost < node.cost)
                         {
