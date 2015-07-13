@@ -6,7 +6,7 @@ Unity already has a navigation mesh implemented to do so.
 
 Possible improvements:
 
- - Add interfaces to make implementation simpler
+ - Add interfaces to make implementation simpler (DONE!)
 
 
-Suggestions and contributions welcome!
+# Suggestions and contributions are welcome and encouraged!
