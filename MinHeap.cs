@@ -135,7 +135,7 @@ public class MinHeap<T> : IEnumerable<T> where T : class, IComparable<T>
 
     public IEnumerator GetEnumerator()
     {
-        return GetEnumerator();
+        return Items.GetEnumerator();
     }
 
     #endregion
